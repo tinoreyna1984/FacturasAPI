@@ -6,7 +6,7 @@ Instrucciones:
 * Crear una base de datos MySQL llamada "facturasapi".
 * Crear migración (tablas): dotnet ef migrations add primera_migracion (en terminal). Si no funciona, instalar CLI: dotnet tool install --global dotnet-ef --version 6.*
 * Compilar y correr el proyecto. En Swagger probar POST:
-
+```bash
 {
   "correlativo": "123456789",
   "tipo": "comidas",
@@ -22,3 +22,4 @@ Instrucciones:
     }
   ]
 }
+```
