@@ -5,6 +5,21 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// CORS
+var misReglasCors = "ReglasCors";
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy(name: misReglasCors,
+					  builder =>
+					  {
+						  builder.AllowAnyOrigin()
+						  .AllowAnyHeader()
+						  .AllowAnyMethod();
+
+
+					  });
+});
+
 // conexión a la base de datos
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     {
@@ -32,7 +47,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors(); // CORS
+app.UseCors(misReglasCors); // CORS - se agrega configuración predeterminada
 
 app.UseHttpsRedirection();
 
